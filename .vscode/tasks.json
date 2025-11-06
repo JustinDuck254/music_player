@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-Iheaders",
+                "-std=c++17",
+                "-O2",
+                "-Wall",
+                "src\\Node.cpp",
+                "src\\Playlist.cpp",
+                "src\\Song.cpp",
+                "src\\main.cpp",
+                "-o",
+                "music_player.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build & Run",
+            "type": "shell",
+            "command": ".\\music_player.exe",
+            "problemMatcher": [],
+            "dependsOn": ["Build"]
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "Remove-Item -Force -ErrorAction SilentlyContinue *.exe",
+            "problemMatcher": []
+        }
+    ]
+}

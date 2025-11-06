@@ -4,10 +4,21 @@ cmake-build-*/
 *.exe
 *.obj
 *.o
+*.a
+*.dll
+*.so
 
-# VS Code
-.vscode/
+# VS Code (keep c_cpp_properties.json and tasks.json)
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.log
 
 # OS
 Thumbs.db
 *.log
+.DS_Store
+
+# Temp/test files
+*_test*
+*_temp*

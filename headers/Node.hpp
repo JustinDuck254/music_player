@@ -7,7 +7,7 @@ class Node{
         Song* data;
         Node* prev,* next;
     public:
-        Node();
+        friend class Playlist;
         Node(Song* data );
         Node(Song* data, Node* next );
         Node(Song* data,Node* next,Node* prev);

@@ -10,6 +10,12 @@ class Playlist{
         Node* tail;
     public:
         Playlist();
-        void addFirst(Node* new_node);
+        bool isEmpty();
+        void addFirst(Song* new_song);
+        void addLast(Song* new_song);
+
+        void addindex(Song* new_song, int index);
+
+        ~Playlist();
 };
 #endif
