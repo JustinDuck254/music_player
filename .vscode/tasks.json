@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build",
+            "label": "Build Music Player",
             "type": "shell",
             "command": "g++",
             "args": [
@@ -13,6 +13,11 @@
                 "src\\Node.cpp",
                 "src\\Playlist.cpp",
                 "src\\Song.cpp",
+                "src\\UI.cpp",
+                "src\\SystemManager.cpp",
+                "src\\APIManager.cpp",
+                "src\\FileManager.cpp",
+                "src\\MusicPlayer.cpp",
                 "src\\main.cpp",
                 "-o",
                 "music_player.exe"
@@ -22,26 +27,132 @@
                 "isDefault": true
             },
             "presentation": {
-                "reveal": "always"
+                "reveal": "always",
+                "panel": "shared"
             },
             "options": {
                 "env": {
                     "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
                 }
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
-            "label": "Build & Run",
+            "label": "Build & Run Music Player",
             "type": "shell",
             "command": ".\\music_player.exe",
             "problemMatcher": [],
-            "dependsOn": ["Build"]
+            "dependsOn": [
+                "Build Music Player"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         },
         {
-            "label": "Clean",
+            "label": "Build C++ DLL (for C# Frontend)",
             "type": "shell",
-            "command": "Remove-Item -Force -ErrorAction SilentlyContinue *.exe",
+            "command": "g++",
+            "args": [
+                "-Iheaders",
+                "-std=c++17",
+                "-O2",
+                "-Wall",
+                "-shared",
+                "src\\Node.cpp",
+                "src\\Playlist.cpp",
+                "src\\Song.cpp",
+                "src\\SystemManager.cpp",
+                "src\\APIManager.cpp",
+                "src\\FileManager.cpp",
+                "src\\LastFMManager.cpp",
+                "src\\Player.cpp",
+                "src\\MusicPlayer.cpp",
+                "src\\MusicPlayerAPI.cpp",
+                "-o",
+                "MusicPlayerDLL.dll"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Build C# UI (WinForms)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "MusicPlayerUI.csproj",
+                "-c",
+                "Release"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "label": "Build Complete App (C++ DLL + C# UI)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "$env:Path = 'C:\\msys64\\ucrt64\\bin;' + $env:Path; g++ -Iheaders -std=c++17 -O2 -Wall -shared src\\Node.cpp src\\Playlist.cpp src\\Song.cpp src\\SystemManager.cpp src\\APIManager.cpp src\\FileManager.cpp src\\LastFMManager.cpp src\\Player.cpp src\\MusicPlayer.cpp src\\MusicPlayerAPI.cpp -o MusicPlayerDLL.dll; dotnet build MusicPlayerUI.csproj -c Release"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Run C# Music Player UI",
+            "type": "shell",
+            "command": "dotnet",
+            "args": [
+                "run",
+                "--project",
+                "MusicPlayerUI.csproj"
+            ],
+            "group": {
+                "kind": "test"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Clean Build Artifacts",
+            "type": "shell",
+            "command": "Remove-Item -Force -ErrorAction SilentlyContinue *.exe, *.o, *.dll",
             "problemMatcher": []
         }
     ]

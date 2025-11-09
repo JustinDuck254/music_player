@@ -1,5 +1,6 @@
 #pragma once
 #ifndef SONG_HPP
+#define SONG_HPP
 #include <string>
 #include <sstream>
 class Song
@@ -15,7 +16,7 @@ public:
     void setDuration(int duration);
 
     std::string getTitle();
-    std::string getAritst();
+    std::string getArtist();
     int getDuration();
 
     std::string toString();

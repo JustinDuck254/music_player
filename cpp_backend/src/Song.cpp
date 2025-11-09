@@ -27,7 +27,7 @@ std::string Song::getTitle()
     return title;
 }
 
-std::string Song::getAritst()
+std::string Song::getArtist()
 {
     return artist;
 }

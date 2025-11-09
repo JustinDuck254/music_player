@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>MusicPlayerUI</RootNamespace>
+    <AssemblyName>MusicPlayerUI</AssemblyName>
+    <StartupObject>MusicPlayerUI.Program</StartupObject>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Company>Music Player</Company>
+    <Product>Music Player Desktop App</Product>
+    <Description>Spotify-like Music Player with C++ Backend</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="NAudio.Wasapi" Version="2.2.1" />
+  </ItemGroup>
+
+  <!-- Copy native DLL to output -->
+  <ItemGroup>
+    <None Include="MusicPlayerDLL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

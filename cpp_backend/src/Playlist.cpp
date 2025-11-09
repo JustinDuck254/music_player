@@ -1,4 +1,7 @@
+#include <iostream>
 #include "Playlist.hpp"
+using std::cout;
+using std::endl;
 Playlist::Playlist()
 {
     head = nullptr;
@@ -6,7 +9,7 @@ Playlist::Playlist()
     size = 0;
 }
 
-bool Playlist::isEmpty()
+bool Playlist::isEmpty() const
 {
     return head == nullptr;
 }
@@ -102,21 +105,82 @@ void Playlist::addIndex(Song *new_song, int index)
     size++;
 }
 
-Playlist::~Playlist()
+Song* Playlist::getAt(int index) const
 {
-    if (isEmpty())
-    {
+    if (isEmpty() || index < 0 || index >= size) return nullptr;
+    Node* cur = head;
+    for (int i = 0; i < index; ++i) cur = cur->next;
+    return cur ? cur->data : nullptr;
+}
+
+void Playlist::print() const
+{
+    if (isEmpty()) {
+    cout << "[empty]" << endl;
         return;
     }
-    head->prev->next = nullptr;
-    Node *current = head;
-
-    while (current != nullptr)
-    {
-        Node *next = current->next;
-        delete current;
-        current = next;
+    Node* cur = head;
+    for (int i = 0; i < size; ++i) {
+    cout << i << ": " << cur->data->toString() << endl;
+        cur = cur->next;
     }
-    head = tail = nullptr;
-    size = 0;
+}
+
+bool Playlist::removeFirst()
+{
+    if (isEmpty()) return false;
+    if (size == 1) {
+        delete head;
+        head = tail = nullptr;
+        size = 0;
+        return true;
+    }
+    Node* oldHead = head;
+    head = head->next;
+    head->prev = tail;
+    tail->next = head;
+    delete oldHead;
+    --size;
+    return true;
+}
+
+bool Playlist::removeLast()
+{
+    if (isEmpty()) return false;
+    if (size == 1) return removeFirst();
+    Node* oldTail = tail;
+    tail = tail->prev;
+    tail->next = head;
+    head->prev = tail;
+    delete oldTail;
+    --size;
+    return true;
+}
+
+bool Playlist::removeIndex(int index)
+{
+    if (isEmpty()) return false;
+    if (index <= 0) return removeFirst();
+    if (index >= size - 1) return removeLast();
+
+    Node* cur = head;
+    for (int i = 0; i < index; ++i) cur = cur->next;
+
+    cur->prev->next = cur->next;
+    cur->next->prev = cur->prev;
+    delete cur;
+    --size;
+    return true;
+}
+
+void Playlist::clear()
+{
+    while (!isEmpty()) {
+        removeFirst();
+    }
+}
+
+Playlist::~Playlist()
+{
+    clear();
 }

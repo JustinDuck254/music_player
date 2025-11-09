@@ -1,0 +1,16 @@
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\bin\Release\net8.0-windows\MusicPlayerDLL.dll
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\bin\Release\net8.0-windows\MusicPlayerUI.exe
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\MusicPlayerUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\MusicPlayerUI.AssemblyInfoInputs.cache
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\MusicPlayerUI.AssemblyInfo.cs
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\MusicPlayerUI.csproj.CoreCompileInputs.cache
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\MusicPlayerUI.sourcelink.json
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\MusicPlayerUI.dll
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\refint\MusicPlayerUI.dll
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\MusicPlayerUI.pdb
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\bin\Release\net8.0-windows\MusicPlayerUI.deps.json
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\bin\Release\net8.0-windows\MusicPlayerUI.runtimeconfig.json
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\bin\Release\net8.0-windows\MusicPlayerUI.dll
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\bin\Release\net8.0-windows\MusicPlayerUI.pdb
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\MusicPlayerUI.genruntimeconfig.cache
+C:\Users\phulo\Documents\Code\Projects\music_player\csharp_frontend\obj\Release\net8.0-windows\ref\MusicPlayerUI.dll
