@@ -1,8 +1,8 @@
-#include <iostream>
-#include "Playlist.hpp"
-using namespace std;
-int main()
-{
-    cout << "Hello World";
+#include "MusicPlayer.hpp"
+
+int main() {
+    MusicPlayer player;
+    player.run();
+
     return 0;
 }
